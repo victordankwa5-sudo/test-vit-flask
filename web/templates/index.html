@@ -1,0 +1,36 @@
+{% extends 'second-base.html' %} {% block title %} Hompage {% endblock %} {%
+block body %}
+
+<div class="circle one"></div>
+<div class="circle two"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Premium Laptops & IT Solutions</h1>
+    <p>Powerful devices for work, study, and gaming</p>
+    <a href="products" class="btn">Shop Now</a>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products" class="products">
+  <div class="container">
+    <h2>Featured Products</h2>
+    <div class="product-grid" id="product-grid">
+      <!-- Products will be injected by JavaScript -->
+       {% for product in products %}
+      <div class="product-card">
+        <img src="{{product.image}}" alt="{{product.name}}" />
+        <div class="info">
+          <h3 class="info-row">{{product.name}}</h3>
+          <div class="price">GH₵{{product.current_price}}</div>
+          <div class="price previous-price">GH₵{{product.previous_price}}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

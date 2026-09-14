@@ -1,0 +1,26 @@
+{% extends 'second-base.html' %} {% block title %} Make payment {% endblock %}
+{% block body %}
+<div class="circle one"></div>
+<div class="circle two"></div>
+
+<main class="checkout-container">
+    <div class="pay-cart-summary">
+        <h1 align="center">PAYMENT VERIFICATION</h1>
+        <div class="item-summary">
+            <h3>A payment request is sent to you to complete your purchase.</h3>
+            <p>
+                Complete the payment request and <strong>click</strong> on the <strong>continue button</strong> to verify that you have completed the payment.
+            </p>
+          <a
+            href="place-order"
+            class="btn"
+            id="checkout-btn"
+            style="align-content: center"
+            >CONTINUE</a
+          >
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}

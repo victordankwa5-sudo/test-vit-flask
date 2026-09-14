@@ -1,0 +1,123 @@
+{% extends 'admin-base.html' %} {% block title %} Admin Dashboard {% endblock %}
+{% block body %}
+<!-- Dashboard Page -->
+<section class="page active-page" id="dashboard">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon purple"><i class="fas fa-dollar-sign"></i></div>
+      <div>
+        <p>Total Revenue</p>
+        <h2>GH₵0</h2>
+        <small class="positive">0% this month</small>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon blue"><i class="fas fa-box"></i></div>
+      <div>
+        <p>Total Products</p>
+        <h2 id="totalProducts">{{total_products}}</h2>
+        <small class="positive"> 0 new products</small>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon orange"><i class="fas fa-shopping-cart"></i></div>
+      <div>
+        <p>Total Orders</p>
+        <h2>{{total_orders}}</h2>
+        <small class="positive">0% this month</small>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon green"><i class="fas fa-users"></i></div>
+      <div>
+        <p>Customers</p>
+        <h2>{{total_customers}}</h2>
+        <small class="positive">0% this month</small>
+      </div>
+    </div>
+  </div>
+  <div class="content-grid">
+    <!-- Sales chart -->
+    <div class="panel chart-panel">
+      <div class="panel-header">
+        <div>
+          <h3>Sales Overview</h3>
+          <p>Monthly revenue performance</p>
+        </div>
+        <select>
+          <option>Last 7 months</option>
+          <option>Last 30 days</option>
+          <option>This year</option>
+        </select>
+      </div>
+      <div class="chart">
+        <div class="chart-y">
+          <span>GH₵10k</span>
+          <span>GH₵8k</span>
+          <span>GH₵6k</span>
+          <span>GH₵4k</span>
+          <span>GH₵2k</span>
+          <span>GH₵0</span>
+        </div>
+        <div class="bars">
+          <div class="bar-container">
+            <div class="bar" style="height: 100%"></div>
+            <span>Jan</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar" style="height: 1%"></div>
+            <span>Feb</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar" style="height: 1%"></div>
+            <span>Mar</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar" style="height: 1%"></div>
+            <span>Apr</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar" style="height: 1%"></div>
+            <span>May</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar" style="height: 1%"></div>
+            <span>Jun</span>
+          </div>
+          <div class="bar-container">
+            <div class="bar" style="height: 1%"></div>
+            <span>Jul</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Recent orders -->
+    <div class="panel">
+      <div class="panel-header">
+        <div>
+          <h3>Recent Orders</h3>
+          <p>Latest customer orders</p>
+        </div>
+        <a href="admin-orders"><button class="view-btn" data-page="orders">View all</button></a>
+      </div>
+      <div class="orders-list">
+        {% for order in orders %}
+
+        <div class="order">
+          <div class="order-avatar">JT</div>
+          <div class="order-info">
+            <strong>{{order.user.username}}</strong>
+            <small>#ORD-{{order.id}}</small>
+          </div>
+          <div>
+            <strong>GH₵{{order.price}}</strong>
+            <small class="status shipped">{{order.status}}</small>
+          </div>
+        </div>
+
+        {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

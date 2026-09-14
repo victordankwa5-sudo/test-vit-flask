@@ -1,0 +1,30 @@
+{% extends 'second-base.html' %} {% block title %} Checkout {% endblock %}
+{% block body %}
+<div class="circle one"></div>
+<div class="circle two"></div>
+
+<main class="checkout-container">
+    <div class="pay-cart-summary">
+        <h1 align="center">CHECKOUT</h1>
+        <div class="item-summary">
+            {% for detail in cart_detail %}
+            <p class="item-row"><span>{{detail.product.name}}</span> <span class=""><i class="fas fa-times"></i>x{{detail.quantity}}</span></p>
+            {% endfor %}
+            <p class="subtotal"><span><i class="fas fa-money-bill"></i> Subtotal</span> <span>GH₵{{amount}}</span></p>
+            <p class="subtotal shipping"><span><i class="fas fa-truck"></i> Shipping</span> <span>GH₵200</span></p>
+            <p class="total">
+              <span><i class="fas fa-wallet"></i> Total</span> <span class="cart-total">GH₵{{total}}</span>
+            </p>
+          <a
+            href="verify-payment"
+            class="btn"
+            id="checkout-btn"
+            style="align-content: center"
+            >Pay</a
+          >
+        </div>
+        
+    </div>
+</main>
+
+{% endblock %}
